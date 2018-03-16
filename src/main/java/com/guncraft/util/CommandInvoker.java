@@ -17,6 +17,7 @@ public class CommandInvoker {
 	public static String version = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
 
 	public static boolean registerCommand(String cmdName) {
+		cmdName = cmdName.toLowerCase();
 		try {
 			Object craftServer = Class.forName("org.bukkit.craftbukkit." + version + ".CraftServer").cast(Bukkit.getServer());
 			Field mapField = craftServer.getClass().getDeclaredField("commandMap");
