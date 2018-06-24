@@ -22,19 +22,26 @@ public class JobSave {
 		return hasJob;
 	}
 	public static boolean buyJob(Player who, JobEnum job) {
-		List<String> jobList = jobSave.getStringList(who.getName().toLowerCase());
+		List <String> jobList = jobSave.getStringList(who.getName().toLowerCase());
 		for (String obj : jobList) {
 			if (obj.equals(job.toString())) {
 				return false;
 			}
 		}
-		jobList.add(job.toString());
-		jobSave.set(who.getName(), jobList);
-		try {
-			jobSave.save(new File(".//plugins//GunCraft//gunmatch" +".yml"));
-		} catch (Exception exc) {
-			return false;
-		}
+		Thread t = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				jobList.add(job.toString());
+				jobSave.set(who.getName(), jobList);
+				try {
+					jobSave.save(new File(".//plugins//GunCraft//gunmatch" +".yml"));
+				} catch (Exception exc) {
+					who.sendMessage("§7[§blGunCraft§7] §c§l异常.请联系管理员.购买失败");
+					exc.printStackTrace();
+				}
+			}
+		});
+		t.start();
 		return true;
 	}
 }

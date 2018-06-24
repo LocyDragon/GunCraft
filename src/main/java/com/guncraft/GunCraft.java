@@ -1,6 +1,7 @@
 package com.guncraft;
 
 
+import com.guncraft.gun.guns.AK47_Normal;
 import com.guncraft.jobs.JobSave;
 import com.guncraft.match.MatchCommand;
 import com.guncraft.match.MatchGui;
@@ -20,10 +21,11 @@ public class GunCraft extends JavaPlugin implements Listener {
 	private static GunCraft instance;
 	@Override
 	public void onEnable() {
-		CommandInvoker.registerCommand("GunMatch");
-		Bukkit.getPluginCommand("gunmatch").setExecutor(new MatchCommand());
-		JobSave.jobSave = registerNewConfiguration("JobSave", null);
-		Bukkit.getPluginManager().registerEvents(new MatchGui(), this);
+		//CommandInvoker.registerCommand("GunMatch");
+		//Bukkit.getPluginCommand("gunmatch").setExecutor(new MatchCommand());
+		//JobSave.jobSave = registerNewConfiguration("JobSave", null);
+		//Bukkit.getPluginManager().registerEvents(new MatchGui(), this);
+		Bukkit.getPluginManager().registerEvents(new AK47_Normal(), this);
 		instance = this;
 	}
 	public static GunCraft getInstance() {
