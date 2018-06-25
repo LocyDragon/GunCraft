@@ -13,7 +13,7 @@ public class MM_9 {
 		ItemMeta meta = MM_9.getItemMeta();
 		meta.setDisplayName("§f9毫米子弹");
 		List<String> lores = new ArrayList<>();
-		lores.add("§f=======§b[§a子弹介绍介绍§b]§f=======");
+		lores.add("§f=======§b[§a子弹介绍§b]§f=======");
 		lores.add("§f錁 全名9毫米鲁格弹，多为手枪/冲锋枪使用");
 		lores.add("§f錁 一枚子弹大概有8公克(即8克)");
 		meta.setLore(lores);

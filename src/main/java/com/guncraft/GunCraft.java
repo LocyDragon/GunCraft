@@ -1,8 +1,10 @@
 package com.guncraft;
 
 
+import com.guncraft.gun.Gun;
 import com.guncraft.gun.bullets.BulletMain;
 import com.guncraft.gun.guns.UZI_Normal;
+import com.guncraft.util.CommandInvoker;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -24,6 +26,7 @@ public class GunCraft extends JavaPlugin implements Listener {
 		//Bukkit.getPluginManager().registerEvents(new MatchGui(), this);
 		Bukkit.getPluginManager().registerEvents(new UZI_Normal(), this);
 		Bukkit.getPluginManager().registerEvents(new BulletMain(), this);
+		Bukkit.getPluginCommand("buygun").setExecutor(new Gun());
 		instance = this;
 	}
 	public static GunCraft getInstance() {

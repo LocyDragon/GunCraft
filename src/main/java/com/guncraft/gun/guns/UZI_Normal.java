@@ -73,7 +73,10 @@ public class UZI_Normal implements Listener {
                 thread.start();
                 shottingThread.put(e.getPlayer().getName(), thread);
 			} else if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
-				e.getPlayer().sendMessage("&bY世界>> &a停止射击.");
+				if (!shottingThread.keySet().contains(e.getPlayer().getName())) {
+					return;
+				}
+				e.getPlayer().sendMessage("§bY世界>> §a停止射击.");
 				shottingThread.get(e.getPlayer().getName()).stopShotting();
 				shottingThread.remove(e.getPlayer().getName());
 			}

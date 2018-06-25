@@ -2,3 +2,5 @@ name: GunCraftCore
 main: com.guncraft.GunCraft
 version: 1.0.0
 author: LocyDragon
+commands:
+  buygun:
