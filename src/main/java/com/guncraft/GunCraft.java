@@ -1,11 +1,8 @@
 package com.guncraft;
 
 
-import com.guncraft.gun.guns.AK47_Normal;
-import com.guncraft.jobs.JobSave;
-import com.guncraft.match.MatchCommand;
-import com.guncraft.match.MatchGui;
-import com.guncraft.util.CommandInvoker;
+import com.guncraft.gun.bullets.BulletMain;
+import com.guncraft.gun.guns.UZI_Normal;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -25,7 +22,8 @@ public class GunCraft extends JavaPlugin implements Listener {
 		//Bukkit.getPluginCommand("gunmatch").setExecutor(new MatchCommand());
 		//JobSave.jobSave = registerNewConfiguration("JobSave", null);
 		//Bukkit.getPluginManager().registerEvents(new MatchGui(), this);
-		Bukkit.getPluginManager().registerEvents(new AK47_Normal(), this);
+		Bukkit.getPluginManager().registerEvents(new UZI_Normal(), this);
+		Bukkit.getPluginManager().registerEvents(new BulletMain(), this);
 		instance = this;
 	}
 	public static GunCraft getInstance() {
